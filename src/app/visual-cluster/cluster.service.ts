@@ -58,7 +58,7 @@ export class VisualClusterService {
     this.monthsNumber = [];
     for (let mon of monthList) {
       const obsReq = new Observable(observer => {
-        let req = new Request(`/assets/data/${mon}.txt`, { method: 'GET', cache: 'reload' });
+        let req = new Request(`./assets/data/${mon}.txt`, { method: 'GET', cache: 'reload' });
         fetch(req)
           .then(resp => {
             return resp.text();
