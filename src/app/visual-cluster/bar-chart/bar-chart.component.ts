@@ -19,20 +19,15 @@ export class BarChartComponent implements OnInit, AfterViewInit {
   subject: Subscription;
   provincesData: any; // 省份数据
   selectedIndex = 0;
-  constructor(private clusterSrv: VisualClusterService) { }
+  constructor(private clusterSrv: VisualClusterService) {}
   ngOnInit() {
     const clientHeight = document.documentElement.clientHeight / 2 - 60 - 10;
     const clientWidth = document.documentElement.clientWidth * 0.85;
-    console.log({
+    this.chart = new G2.Chart({
       container: 'chart', // 指定图表容器 ID
       width: clientWidth, // 指定图表宽度
       height: clientHeight // 指定图表高度
     });
-    // this.chart = new G2.Chart({
-    //   container: 'chart', // 指定图表容器 ID
-    //   width: clientWidth, // 指定图表宽度
-    //   height: clientHeight // 指定图表高度
-    // });
 
     this.subject = this.clusterSrv._subject$.subscribe((res = []) => {
       this.selectedIndex = 0;

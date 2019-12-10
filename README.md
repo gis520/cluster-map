@@ -6,7 +6,7 @@
 在线demo：https://gis520.github.io/cluster-map/
 
 
-![](./demo.png)
+![](./demo1.png)
 
 
 ## Usage
