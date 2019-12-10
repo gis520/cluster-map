@@ -1,0 +1,40 @@
+#chart {
+  float: left;
+  width: calc(100% - 310px);
+  margin-right: 25px;
+  border-right: 1px solid #e8e8e8;
+}
+
+.ranking {
+  float: left;
+  width: 280px;
+  .head {
+    color: #000;
+    font-weight: bold;
+    list-style: none;
+  }
+  ul {
+    display: flex;
+    flex: 1;
+    li {
+      float: left;
+      width: 33%;
+      span {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border-radius: 100px;
+        background-color: #f0f2f5;
+        text-align: center;
+        vertical-align: middle;
+        color: #717274;
+        font-weight: bold;
+      }
+      .balck {
+        background-color: #314659;
+        color: white;
+        font-weight: bold;
+      }
+    }
+  }
+}

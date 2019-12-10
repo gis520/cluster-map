@@ -1,0 +1,22 @@
+<nz-tabset [nzSelectedIndex]="selectedIndex" (nzSelectChange)="clickTab($event)">
+  <nz-tab nzTitle="{{ item }}" *ngFor="let item of tabTitle; let i = index"> </nz-tab>
+</nz-tabset>
+<!-- 统计图表  -->
+<div id="chart"></div>
+<div class="ranking">
+  <ul class="head">
+    <li>排名</li>
+    <li>省份/月份</li>
+    <li>单量</li>
+  </ul>
+  <ul *ngFor="let item of sortData; let i = index">
+    <li>
+      <span [class.balck]="i < 3"> {{ i + 1 }}</span>
+    </li>
+    <li>{{ item?.name }}</li>
+    <li>{{ item?.number }}</li>
+  </ul>
+  <div *ngIf="sortData && !sortData.length">
+    <nz-empty></nz-empty>
+  </div>
+</div>

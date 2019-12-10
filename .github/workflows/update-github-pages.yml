@@ -22,7 +22,7 @@ jobs:
         run: npm install
 
       - name: Ng Build
-        run: node ./node_modules/@angular/cli/bin/ng build  --outputPath=dist --base-href=/visual-maptool/
+        run: node ./node_modules/@angular/cli/bin/ng build  --outputPath=dist --base-href=/cluster-map/
 
       - name: Git Init
         run: |
@@ -32,8 +32,8 @@ jobs:
         run: |
           cd ./dist
           git add .
-          git config user.email "zomixi@qq.com"
-          git config user.name "zomixi"
+          git config user.email "giscafer@outlook.com"
+          git config user.name "giscafer"
           git commit -m "update github pages"
       - name: Git Push
         env:

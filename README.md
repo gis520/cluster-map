@@ -1,12 +1,22 @@
-# visual-maptool
-基于高德地图可视化路径分析工具 @giscafer
+# cluster-map
+基于高德地图聚合统计&统计图 [@giscafer](https://github.com/giscafer)
 
-在线demo：https://gis520.github.io/visual-maptool/
+技术栈：`Angular + 高德 Web JS`
+
+在线demo：https://gis520.github.io/cluster-map/
 
 
 ![](./demo.png)
 
 
-## Development server
+## Usage
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- `npm install`
+- `npm run start`
+- 浏览器访问: `http://localhost:4200/`
+
+
+## License 
+
+-  [WebGIS入门实战](https://xiaozhuanlan.com/webgis)
+

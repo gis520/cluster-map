@@ -1,0 +1,89 @@
+<div class="map-container">
+  <div class="header">
+    <span class="title">订单区划聚合统计</span>
+    <div class="select-date">
+      <nz-month-picker
+        [(ngModel)]="startDate"
+        [nzFormat]="monthFormat"
+        [nzDisabledDate]="disabledStartDate"
+        (nzOnOpenChange)="handleStartOpenChange($event)"
+        [nzAllowClear]="'false'"
+        nzPlaceHolder="请选择开始月份"
+      ></nz-month-picker>
+      <nz-month-picker
+        [(ngModel)]="endDate"
+        [nzFormat]="monthFormat"
+        [nzDisabledDate]="disabledEndDate"
+        (nzOnOpenChange)="handleEndOpenChange($event)"
+        [nzAllowClear]="'false'"
+        nzPlaceHolder="请选择结束月份"
+      ></nz-month-picker>
+    </div>
+    <div class="btn-ground">
+      <button nz-button nzType="default" (click)="reset()">重置</button>
+      <button nz-button nzType="primary" (click)="loadData()" [nzLoading]="clusterSrv?.loading" style="margin-left:20px;">查询</button>
+    </div>
+    <div class="totals">
+      当前订单总量：<span>{{ clusterSrv?.totals || 0 }}</span> 单
+    </div>
+  </div>
+  <ngx-amap
+    class="ngxmap"
+    [center]="centerPoint"
+    [zoom]="mapConfig.level"
+    [ngStyle]="{ height: maxHight }"
+    [zooms]="mapConfig.zooms"
+    [resizeEnable]="true"
+  >
+    <amap-tool-bar></amap-tool-bar>
+  </ngx-amap>
+  <!-- 柱状图表 -->
+  <bar-chart class="bar-chart" (switch)="switch()" [class.show-box]="showBox" [class.hide-box]="!showBox"></bar-chart>
+</div>
+<!-- 折叠画板开关按钮 -->
+<div class="switch-btn" (click)="switch()" [class.btn-up-site]="showBox" [class.btn-down-site]="!showBox">
+  <i nz-icon [hidden]="!showBox"
+    ><svg
+      t="1573793010629"
+      class="icon"
+      viewBox="0 0 1024 1024"
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+      p-id="857"
+      width="16"
+      height="16"
+    >
+      <path
+        d="M247.637333 480.199111a28.444444 28.444444 0 1 0-40.163555 40.391111l284.444444 283.136a28.444444 28.444444 0 0 0 40.163556 0l284.444444-283.192889a28.444444 28.444444 0 1 0-40.163555-40.334222L512 743.424 247.637333 480.142222z"
+        fill="#ffffff"
+        p-id="858"
+      ></path>
+      <path
+        d="M247.637333 252.643556a28.444444 28.444444 0 0 0-40.163555 40.391111l284.444444 283.136a28.444444 28.444444 0 0 0 40.163556 0l284.444444-283.192889a28.444444 28.444444 0 1 0-40.163555-40.334222L512 515.868444 247.637333 252.586667z"
+        fill="#ffffff"
+        p-id="859"
+      ></path></svg
+  ></i>
+  <i nz-icon [hidden]="showBox"
+    ><svg
+      t="1573793528777"
+      class="icon"
+      viewBox="0 0 1024 1024"
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+      p-id="1759"
+      width="16"
+      height="16"
+    >
+      <path
+        d="M247.637333 543.800889a28.444444 28.444444 0 1 1-40.163555-40.391111l284.444444-283.136a28.444444 28.444444 0 0 1 40.163556 0l284.444444 283.192889a28.444444 28.444444 0 1 1-40.163555 40.334222L512 280.576 247.637333 543.857778z"
+        fill="#ffffff"
+        p-id="1760"
+      ></path>
+      <path
+        d="M247.637333 771.356444a28.444444 28.444444 0 0 1-40.163555-40.391111l284.444444-283.136a28.444444 28.444444 0 0 1 40.163556 0l284.444444 283.192889a28.444444 28.444444 0 1 1-40.163555 40.334222L512 508.131556 247.637333 771.413333z"
+        fill="#ffffff"
+        p-id="1761"
+      ></path></svg
+  ></i>
+</div>
